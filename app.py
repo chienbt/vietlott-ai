@@ -182,7 +182,7 @@ if not os.path.exists(DATA_CSV):
 df_all = pd.read_csv(DATA_CSV)
 
 # seed cố định (ổn định) hoặc đổi khi bấm nút
-base_seed = 20251106 if not do_refresh else int(datetime.now().timestamp()) % 2_147_483_647
+base_seed = int(short_pages * 1000 + long_pages)
 tickets, (f_s, f_l), (spf_s, spf_l) = dual_mode_predict(df_all, short_pages, long_pages, seed=base_seed)
 
 # ---------------------- Render ---------------------- #
